@@ -10,11 +10,9 @@ public class ServiceProviderEventPublisher(IServiceProvider serviceProvider) : I
     {
         var handlerType = typeof(IEventHandler<>).MakeGenericType(@event.GetType());
         var handlers = serviceProvider.GetServices(handlerType);
+        var handleMethod = handlerType.GetMethod(nameof(IEventHandler<object>.HandleAsync))
+                           ?? throw new ArgumentNullException(nameof(IEventHandler<object>.HandleAsync));
         foreach (var handler in handlers)
-        {
-            var handleMethod = handlerType.GetMethod(nameof(IEventHandler<object>.HandleAsync))
-                               ?? throw new ArgumentNullException(nameof(IEventHandler<object>.HandleAsync));
             await (Task)handleMethod.Invoke(handler, [@event, cancellationToken])!;
-        }
     }
 }

@@ -11,7 +11,7 @@
 
     <PropertyGroup>
         <PackageId>Shared.Infrastructure</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>DreamFly Airlines</Authors>
         <Description>Shared infrastructure implementations for microservices</Description>
         <PackageOutputPath>../../nupkgs</PackageOutputPath>
