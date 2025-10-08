@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Infrastructure", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Extensions", "src\Shared.Extensions\Shared.Extensions.csproj", "{CAE20974-D753-4821-B390-913A924FE87D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.IntegrationEvents", "src\Shared.IntegrationEvents\Shared.IntegrationEvents.csproj", "{76B1ACA9-1E5E-46CB-85A8-D9346D101721}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{CAE20974-D753-4821-B390-913A924FE87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAE20974-D753-4821-B390-913A924FE87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAE20974-D753-4821-B390-913A924FE87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B1ACA9-1E5E-46CB-85A8-D9346D101721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B1ACA9-1E5E-46CB-85A8-D9346D101721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B1ACA9-1E5E-46CB-85A8-D9346D101721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B1ACA9-1E5E-46CB-85A8-D9346D101721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
