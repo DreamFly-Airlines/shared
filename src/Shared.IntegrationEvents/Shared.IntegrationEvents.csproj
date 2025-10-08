@@ -11,7 +11,7 @@
 
     <PropertyGroup>
         <PackageId>Shared.IntegrationEvents</PackageId>
-        <Version>2.0.0</Version>
+        <Version>2.0.1</Version>
         <Authors>DreamFly Airlines</Authors>
         <Description>Shared information on integration events for microservices (DTOs, Kafka topics, etc.)</Description>
         <PackageOutputPath>../../nupkgs</PackageOutputPath>

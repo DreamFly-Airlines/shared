@@ -1,6 +1,6 @@
 ﻿namespace Shared.Abstractions.IntegrationEvents;
 
-public interface IIntegrationEvent 
+public interface IIntegrationEvent
 {
-    public string EventName { get; } 
+    public static abstract string EventName { get; }
 }
