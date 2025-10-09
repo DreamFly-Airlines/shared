@@ -10,7 +10,7 @@ public class ServiceProviderIntegrationEventPublisher(
         where TEvent : IIntegrationEvent
     {
         var handlerType = typeof(IIntegrationEventHandler<>).MakeGenericType(@event.GetType());
-        const string handleMethodName = nameof(IIntegrationEventHandler<IIntegrationEvent>.HandleAsync); 
+        const string handleMethodName = nameof(IIntegrationEventHandler<TEvent>.HandleAsync); 
         var handleMethodInfo = handlerType.GetMethod(handleMethodName) 
                          ?? throw new MissingMethodException($"Handler method \"{handleMethodName}\" not found");
         var handlers = serviceProvider.GetServices(handlerType);
