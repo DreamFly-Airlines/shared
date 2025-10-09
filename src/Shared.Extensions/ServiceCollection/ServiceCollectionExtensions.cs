@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Abstractions.Commands;
 using Shared.Abstractions.Events;
+using Shared.Abstractions.IntegrationEvents;
 using Shared.Abstractions.Queries;
 
 namespace Shared.Extensions.ServiceCollection;
@@ -23,6 +24,12 @@ public static class ServiceCollectionExtensions
     public static void AddQueryHandlers(this IServiceCollection services, Assembly assembly)
     {
         var handlerInterfaceType = typeof(IQueryHandler<,>);
+        services.FindImplementationsAndRegister(handlerInterfaceType, assembly);
+    }
+
+    public static void AddIntegrationEventHandlers(this IServiceCollection services, Assembly assembly)
+    {
+        var handlerInterfaceType = typeof(IIntegrationEventHandler<>);
         services.FindImplementationsAndRegister(handlerInterfaceType, assembly);
     }
 
