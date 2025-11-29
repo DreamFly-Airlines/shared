@@ -1,23 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-    </PropertyGroup>
-    
-    <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <PackageId>Shared.Infrastructure</PackageId>
-        <Version>1.1.1</Version>
-        <Authors>DreamFly Airlines</Authors>
         <Description>Shared infrastructure implementations for microservices</Description>
-        <PackageOutputPath>../../nupkgs</PackageOutputPath>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/DreamFly-Airlines/shared-infrastructure/src/Shared.Infrastructure</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/DreamFly-Airlines/shared-infrastructure</RepositoryUrl>
         <PackageTags>shared;infrastructure;implementations;microservices</PackageTags>
     </PropertyGroup>
 

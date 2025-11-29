@@ -1,23 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-    
-    <PropertyGroup>
         <PackageId>Shared.Abstractions</PackageId>
-        <Version>3.0.1</Version>
-        <Authors>DreamFly Airlines</Authors>
         <Description>Shared infrastructure abstractions for microservices</Description>
-        <PackageOutputPath>../../nupkgs</PackageOutputPath>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/DreamFly-Airlines/shared-infrastructure/src/Shared.Abstractions</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/DreamFly-Airlines/shared-infrastructure</RepositoryUrl>
         <PackageTags>shared;infrastructure;abstractions;microservices</PackageTags>
     </PropertyGroup>
 

@@ -1,23 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-    
-    <PropertyGroup>
         <PackageId>Shared.Extensions</PackageId>
-        <Version>1.2.0</Version>
-        <Authors>DreamFly Airlines</Authors>
         <Description>Shared extensions for microservices</Description>
-        <PackageOutputPath>../../nupkgs</PackageOutputPath>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/DreamFly-Airlines/shared-infrastructure/src/Shared.Extensions</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/DreamFly-Airlines/shared-infrastructure</RepositoryUrl>
         <PackageTags>shared;extensions;microservices</PackageTags>
     </PropertyGroup>
     

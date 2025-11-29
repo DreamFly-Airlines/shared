@@ -1,0 +1,21 @@
+﻿<Project>
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Version>3.0.1</Version>
+        <Authors>DreamFly Airlines</Authors>
+        <Company>DreamFly Airlines</Company>
+        <PackageOutputPath>$(MSBuildThisFileDirectory)nupkgs</PackageOutputPath>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/DreamFly-Airlines/shared-infrastructure</RepositoryUrl>
+    </PropertyGroup>
+    
+</Project>

@@ -1,23 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-    </PropertyGroup>
-    
-    <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <PackageId>Shared.IntegrationEvents</PackageId>
-        <Version>2.0.1</Version>
-        <Authors>DreamFly Airlines</Authors>
         <Description>Shared information on integration events for microservices (DTOs, Kafka topics, etc.)</Description>
-        <PackageOutputPath>../../nupkgs</PackageOutputPath>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/DreamFly-Airlines/shared-infrastructure/src/Shared.IntegrationEvents</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/DreamFly-Airlines/shared-infrastructure</RepositoryUrl>
         <PackageTags>shared;integration-events;kafka;microservices</PackageTags>
     </PropertyGroup>
 
