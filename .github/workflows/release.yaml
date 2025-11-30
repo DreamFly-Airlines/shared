@@ -78,7 +78,7 @@ jobs:
     if: needs.release-and-publish.outputs.published == 'true'
     strategy:
       matrix: 
-        repo: ['DreamFly-Airlines/payments']
+        repo: ['DreamFly-Airlines/payments', 'DreamFly-Airlines/bookings', 'DreamFly-Airlines/auth']
     steps:
       - name: Trigger Update in ${{ matrix.repo }}
         uses: peter-evans/repository-dispatch@v3
