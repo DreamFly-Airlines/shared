@@ -1,7 +1,7 @@
 ﻿namespace Shared.Abstractions.Queries;
 
-public interface IQueryHandler<in TQuery, T> 
-    where TQuery : IQuery<T>
+public interface IQueryHandler<in TQuery, TResult> 
+    where TQuery : IQuery<TResult>
 {
-    public Task<T> HandleAsync(TQuery query, CancellationToken cancellationToken = default);
+    public Task<TResult> HandleAsync(TQuery query, CancellationToken cancellationToken = default);
 }

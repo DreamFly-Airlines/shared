@@ -2,5 +2,5 @@
 
 public interface IQuerySender
 {
-    public Task<T> SendAsync<T>(IQuery<T> query, CancellationToken cancellationToken = default);
+    public Task<TResult> SendAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default);
 }

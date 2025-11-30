@@ -1,3 +1,3 @@
 ﻿namespace Shared.Abstractions.Queries;
 
-public interface IQuery<T>;
+public interface IQuery<out TResult>;
