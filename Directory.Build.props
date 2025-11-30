@@ -10,7 +10,7 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <Version>3.0.2</Version>
+        <Version>3.0.3</Version>
         <Authors>DreamFly Airlines</Authors>
         <Company>DreamFly Airlines</Company>
         <PackageOutputPath>$(MSBuildThisFileDirectory)nupkgs</PackageOutputPath>
