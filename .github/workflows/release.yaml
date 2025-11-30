@@ -1,0 +1,69 @@
+﻿name: Release & Publish
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+
+jobs:
+  release-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract Version
+        id: get_version
+        run: |
+          VERSION=$(sed -n 's/.*<Version>\(.*\)<\/Version>.*/\1/p' Directory.Build.props | tr -d '\r')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Check if Tag Exists
+        id: check_tag
+        run: |
+          if git tag -l "v${VERSION}" | grep -q .; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        if: steps.check_tag.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: v${{ env.VERSION }}
+          generate_release_notes: true
+          make_latest: true
+
+      - name: Setup .NET
+        if: steps.check_tag.outputs.exists == 'false'
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0
+
+      - name: Add NuGet Source
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          dotnet nuget add source "https://nuget.pkg.github.com/DreamFly-Airlines/index.json" \
+            --name "github" \
+            --username "DreamFly-Airlines" \
+            --password ${{ secrets.GITHUB_TOKEN }} \
+            --store-password-in-clear-text
+
+      - name: Pack and Push
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          dotnet pack --configuration Release
+          dotnet nuget push ./nupkgs/*.nupkg \
+            --source "github" \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            --skip-duplicate
