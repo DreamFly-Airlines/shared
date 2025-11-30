@@ -13,6 +13,9 @@ jobs:
     permissions:
       contents: write
       packages: write
+    outputs:
+      published: ${{ steps.check_tag.outputs.exists == 'false' }}
+      version: ${{ steps.get_version.outputs.VERSION }}
 
     steps:
       - name: Checkout code
@@ -25,6 +28,7 @@ jobs:
         run: |
           VERSION=$(sed -n 's/.*<Version>\(.*\)<\/Version>.*/\1/p' Directory.Build.props | tr -d '\r')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Check if Tag Exists
         id: check_tag
@@ -67,3 +71,19 @@ jobs:
             --source "github" \
             --api-key ${{ secrets.PERSONAL_ACCESS_TOKEN }} \
             --skip-duplicate
+          
+  trigger-updates-in-other-repositories:
+    needs: release-and-publish
+    runs-on: ubuntu-latest
+    if: needs.release-and-publish.outputs.published == 'true'
+    strategy:
+      matrix: 
+        repo: ['DreamFly-Airlines/payments']
+    steps:
+      - name: Trigger Update in ${{ matrix.repo }}
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: shared-library-update
+          client-payload: '{"version": "${{ needs.release-and-publish.outputs.version }}"}'
